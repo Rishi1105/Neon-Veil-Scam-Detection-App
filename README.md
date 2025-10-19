@@ -1,6 +1,6 @@
 # Neon Veil Scam Detection App
 
-This is a code bundle for Neon Veil Scam Detection App. The original project is available at https://www.figma.com/design/uqR4BbSllT6Pb2jeWPpCqk/Neon-Veil-Scam-Detection-App.
+
 
 ## Running the code
 
