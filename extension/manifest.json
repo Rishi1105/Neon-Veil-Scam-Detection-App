@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "Neon Veil Scam Detection",
+  "version": "0.1.0",
+  "description": "Analyze messages and selected text for scam indicators using the Neon Veil analyzer.",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "tabs",
+    "scripting"
+  ],
+  "action": {
+    "default_title": "Neon Veil",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["analyzer-shared.js", "contentScript.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["analyzer-shared.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "commands": {
+    "analyze-current": {
+      "suggested_key": {
+        "default": "Alt+Shift+A"
+      },
+      "description": "Analyze current site"
+    }
+  }
+}

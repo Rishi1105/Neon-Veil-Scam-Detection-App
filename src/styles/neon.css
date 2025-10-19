@@ -1,0 +1,166 @@
+/* Blade Runner 2049 Neon Veil Theme */
+:root {
+  --neon-blue: #00ffff;
+  --neon-green: #39ff14;
+  --neon-magenta: #ff00ff;
+  --electric-blue: #0066ff;
+  --toxic-green: #00ff41;
+  --cyber-purple: #8a2be2;
+  --dark-bg: #0a0a0f;
+  --darker-bg: #050508;
+  --glass-bg: rgba(10, 10, 15, 0.8);
+  --border-neon: rgba(0, 255, 255, 0.3);
+}
+
+.dark {
+  --background: var(--dark-bg);
+  --foreground: #e0e0e0;
+  --card: var(--glass-bg);
+  --border: var(--border-neon);
+}
+
+/* Neon glow effects */
+.neon-glow {
+  box-shadow: 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+.neon-blue { color: var(--neon-blue); }
+.neon-green { color: var(--neon-green); }
+.neon-magenta { color: var(--neon-magenta); }
+.electric-blue { color: var(--electric-blue); }
+.toxic-green { color: var(--toxic-green); }
+
+/* Glitch effect */
+.glitch {
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: var(--neon-magenta);
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: var(--neon-blue);
+  z-index: -2;
+}
+
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(-2px, -2px); }
+  20% { transform: translate(2px, 2px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  10% { transform: translate(2px, 2px); }
+  20% { transform: translate(-2px, -2px); }
+}
+
+/* Holographic overlay */
+.holographic {
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+  animation: hologram 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hologram {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Angular/geometric borders */
+.angular-border {
+  clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+}
+
+.angular-border-sm {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+/* Scanning line effect */
+.scan-lines::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 255, 0.03) 2px,
+    rgba(0, 255, 255, 0.03) 4px
+  );
+  pointer-events: none;
+}
+
+/* Pulsing effect */
+.pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-neon {
+  from { opacity: 0.6; filter: brightness(0.8); }
+  to { opacity: 1; filter: brightness(1.2); }
+}
+
+/* Data grid styling */
+.data-grid {
+  background: 
+    linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--darker-bg);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--neon-blue);
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-magenta);
+}
